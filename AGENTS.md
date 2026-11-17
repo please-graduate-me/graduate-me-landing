@@ -1,0 +1,40 @@
+# 프로젝트 지침
+
+- 사용자에게 전달하는 설명과 주석은 한국어로 작성한다. em dash 문자는 사용하지 않는다.
+- 프론트엔드 코드의 파일 배치, 의존 방향과 스타일은 [Architecture.md](Architecture.md)를 따른다.
+- 서비스 표기, 로고, 색은 [docs/design-decisions.md](docs/design-decisions.md)를 따른다. 실제 서비스 업무 규칙은 이 랜딩에서 구현하지 않는다.
+- 프론트와 백엔드의 타입·검증·업무 로직은 각 앱에서 관리한다. 공통 소스 패키지나 앱 간 직접 import를 만들지 않는다. API 변경 시 양쪽 정의와 사용처를 확인한다.
+- 로컬 서비스 실행과 환경변수 주입은 Docker Compose에서 담당한다.
+- 파일을 수정한 작업은 완료 보고와 커밋 전에 반드시 `pnpm check`를 실행한다. Prettier 포맷 적용, ESLint 검사, 타입 검사를 순서대로 수행하며, 실패하면 수정 후 다시 실행한다. 포맷으로 변경된 내용도 검토한다.
+- 코드 수정 후 변경 범위에 맞는 테스트와 빌드를 추가로 확인한다.
+- Vitest로 체험 채점과 화면 동작을 검증한다. API와 DB에 연결하지 않는다.
+
+## 앱 구조
+
+- Next.js 16 App Router와 `output: 'export'`, `images.unoptimized: true`를 사용한다.
+- 소스는 `src/`, 페이지는 `src/app/`, 화면 전용 부품과 훅은 `src/app/-components/`에 둔다.
+- 랜딩은 `pleasegraduate.me`, 서비스 앱은 `app.pleasegraduate.me`다. 로그인 버튼은 `${NEXT_PUBLIC_APP_URL}/login`으로 연결한다.
+- 세션 분기, 인증 처리, Route Handler, Server Action, 서버 API 호출을 넣지 않는다.
+- 체험은 저장소의 JSON과 브라우저 상태로만 동작한다. 외부 영상은 사용자가 불러올 때만 연결한다.
+- 비밀값은 랜딩 환경변수에 넣지 않는다. `NEXT_PUBLIC_` 값은 공개되며 정적 빌드 시 확정된다.
+- Gemini 호출과 worker 실행은 금지한다. 다른 앱과 소스를 직접 import하지 않는다.
+
+## UI 시스템
+
+- 기본 UI는 `src/components/ui/`의 사내 디자인 시스템 컴포넌트를 먼저 사용한다. 필요한 컴포넌트와 props가 이미 있는지 확인하고 `@/components/ui/<primitives|composites|layouts>/<컴포넌트>`에서 가져온다.
+- 화면은 버튼, 입력, 대화상자, 표, 툴팁 같은 기본 제어를 직접 만들지 않는다. 필요한 기본 제어가 없으면 `src/components/ui/`에 추가한 뒤 사용한다.
+- 공통 디자인 값(색, 간격, 글꼴, 반경, 그림자, 모션)은 `src/lib/styles/theme.css.ts`의 토큰을 사용한다.
+- 공통 컴포넌트의 기본 외형은 `src/lib/styles/layers.css.ts`의 `layered()`로 `ui` CSS 계층 안에 둔다. 화면 className은 계층 밖에 있어 불러온 순서와 관계없이 기본 외형보다 우선한다.
+- 스타일은 vanilla-extract를 유지한다. 페이지 배치와 서비스 전용 표현은 해당 화면의 `.css.ts`에 두고, 공통 컴포넌트의 배경·테두리 같은 기본 외형을 화면에서 다시 그리지 않는다.
+- Radix는 드롭다운 메뉴, 툴팁, 토스트의 동작에만 사용한다. 나머지 기본 제어는 네이티브 요소로 구현한다.
+
+## 주석
+
+주석은 모든 export에 단일 라인 JSDoc(/** ... */), 함수 본문 안 비자명 로직에 한 줄 //로 WHY(의도·함정)를 적는다. 본문은 한국어, 식별자는 영어. 멀티라인 블록·@param/@returns 태그·코드 받아쓰기(WHAT)는 금지한다. 한 줄에 안 들어가면 주석 문제가 아니라 코드 분리·네이밍 신호다. 기초 개념(fail-fast, barrel 등)도 풀어쓰지 말고 한 줄 안에 단어로 녹인다. 보안 위험·법적 구속처럼 길게 풀 정당한 이유가 있을 때만 멀티라인을 허용한다.
+
+## 분리된 저장소
+
+- 프론트엔드: `../graduate-me-frontend`
+- 백엔드와 NestJS 작업 관리자: `../graduate-me-backend`
+- 랜딩 저장소는 `../graduate-me-landing`이다. 필요한 UI는 복사하여 관리하고 다른 저장소 소스를 직접 import하지 않는다.
+- 개발 서버는 `pnpm dev`로 Docker Compose에서 실행한다. `dev:app`은 컨테이너 내부 실행 명령이다.

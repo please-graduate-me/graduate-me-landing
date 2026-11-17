@@ -1,0 +1,139 @@
+{
+  "youtubeId": "VHZI9_we5GQ",
+  "status": "ready",
+  "segments": [
+    {
+      "id": "4192e9a7-cc51-4d22-b6fd-392c1fe47ec1",
+      "start": 5.619999999999999,
+      "end": 6.76,
+      "text": "This is crazy, Ben.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["This", "is", "crazy,", "Ben."]
+    },
+    {
+      "id": "09d2475a-2e67-472a-922b-c4aa98aaa7aa",
+      "start": 6.76,
+      "end": 7.98,
+      "text": "Two desks are not going to fit in here.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": [
+        "Two",
+        "desks",
+        "are",
+        "not",
+        "going",
+        "to",
+        "fit",
+        "in",
+        "here."
+      ]
+    },
+    {
+      "id": "8d7dc330-8302-49b9-8f5c-b1a3e2fb6cd2",
+      "start": 7.98,
+      "end": 8.56,
+      "text": "No, I promise.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["No,", "I", "promise."]
+    },
+    {
+      "id": "5e581ce9-2baf-45e3-bef1-614d90221e69",
+      "start": 8.56,
+      "end": 9.44,
+      "text": "I'll stay out of your way.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["I'll", "stay", "out", "of", "your", "way."]
+    },
+    {
+      "id": "cfdfdef9-149d-4d37-8d31-92aaca4bb677",
+      "start": 9.44,
+      "end": 11.66,
+      "text": "That's impossible because now I don't have room for...",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": [
+        "That's",
+        "impossible",
+        "because",
+        "now",
+        "I",
+        "don't",
+        "have",
+        "room",
+        "for..."
+      ]
+    },
+    {
+      "id": "926fef4f-561e-42f7-8f80-7733343cbdad",
+      "start": 11.66,
+      "end": 12.08,
+      "text": "Hi.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["Hi."]
+    },
+    {
+      "id": "5c7799ce-e3bd-445c-9788-510e2c2a1267",
+      "start": 12.08,
+      "end": 13.66,
+      "text": "This is good, right?",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["This", "is", "good,", "right?"]
+    },
+    {
+      "id": "cf0fdedc-55eb-4c33-a20f-f012ce058663",
+      "start": 13.94,
+      "end": 15.44,
+      "text": "I like this arrangement.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["I", "like", "this", "arrangement."]
+    },
+    {
+      "id": "fca66f06-8505-4e2a-acdc-d7f97b96f6b8",
+      "start": 15.94,
+      "end": 18.04,
+      "text": "Becky, I want you to let Ben give you a hand, okay?",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": [
+        "Becky,",
+        "I",
+        "want",
+        "you",
+        "to",
+        "let",
+        "Ben",
+        "give",
+        "you",
+        "a",
+        "hand,",
+        "okay?"
+      ]
+    },
+    {
+      "id": "b243a556-e7b5-40e3-918d-5622b718c1e7",
+      "start": 18.18,
+      "end": 19.7,
+      "text": "And CC him on all my emails.",
+      "translation": null,
+      "blankCandidates": null,
+      "version": 1,
+      "units": ["And", "CC", "him", "on", "all", "my", "emails."]
+    }
+  ]
+}
